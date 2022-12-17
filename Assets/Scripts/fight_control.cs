@@ -12,6 +12,8 @@ public class fight_control : MonoBehaviour
     public Text actiontext;
     public Slider hpbar;
     public int CreatecardNUM;
+    public int currectaction;
+    public bool isforgive;
 
     // Start is called before the first frame update
     void Start()
@@ -19,21 +21,43 @@ public class fight_control : MonoBehaviour
         hp = playerdata.hp;
         armor = playerdata.armor;
         action = playerdata.action;
+        currectaction = action;
         action_image = GetComponentInChildren<Image>();
         actiontext = action_image.GetComponentInChildren<Text>();
         hpbar = GetComponentInChildren<Slider>();
-        
+        isforgive = false;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        addaction();
         changedata();
     }
     public void changedata()
     {
-        actiontext.text = action.ToString() + "/" + playerdata.action.ToString();
+        actiontext.text = currectaction.ToString() + "/" + action.ToString();
         hpbar.value = hp / playerdata.hp;
+        
+    }
+    public void addaction()
+    
+    {
+        if (GetComponent<game_control>().playerturn == false)
+        {
+            if (action >= 9)
+            {
+                action = 9;
+            }
+            currectaction = action+1;
+        }
+        
+    }
+    public void isbeginingforgive()
+    {
+        isforgive = true;
         
     }
 }

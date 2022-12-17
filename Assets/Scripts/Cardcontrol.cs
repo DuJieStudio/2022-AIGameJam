@@ -22,6 +22,7 @@ public class Cardcontrol : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public LayerMask enemy;
     public GameObject target;
     public game_control game_Control;
+    public createcard createcard;
 
 
     public void Start()
@@ -98,7 +99,7 @@ public class Cardcontrol : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (playeraction >= cost)
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().currectaction >= cost)
             {
                 isdragging = true;
                 startpoint = transform.position;
@@ -123,24 +124,71 @@ public class Cardcontrol : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "enemy")
-        { target = collision.gameObject; }
+        {
+            target = collision.gameObject;
+            Debug.Log(target);
+
+        }
     }
     public void OnDestroy()
     {
-        if (cardData.ID == 0)
-        {
-            
-        }
         if (cardData.ID == 1)
         {
-
+            if (isdragging)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().currectaction -= 1;
+                target.GetComponent<enemy_control>().currenthp -= 5;
+            }
+            
         }
         if (cardData.ID == 2)
         {
-            
+            if (isdragging)
+            {
+                int i= GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().currectaction;
+                target.GetComponent<enemy_control>().currenthp -= 5*i;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().currectaction=0;
+            }
+
+        }
+        if (cardData.ID == 3)
+        {
+            if (isdragging)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().currectaction -= 2;
+                target.GetComponent<enemy_control>().currenthp += 10;
+                target.GetComponent<enemy_control>().forgive += 10;
+                if (target.GetComponent<enemy_control>().currenthp > target.GetComponent<enemy_control>().maxhp)
+                {   
+                    target.GetComponent<enemy_control>().forgive+= target.GetComponent<enemy_control>().currenthp - target.GetComponent<enemy_control>().maxhp;
+                    target.GetComponent<enemy_control>().currenthp = target.GetComponent<enemy_control>().maxhp;
+                   
+
+
+                }
+            }
+        }
+        if (cardData.ID == 4)
+        {
+            if (isdragging)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().currectaction -= 2;
+                for (int i = 0; i < 2; i++)
+                { GameObject.Find("grid").GetComponent<createcard>().drawcard(); }
+
+            }
+        }
+        if (cardData.ID == 5)
+        {
+            if (isdragging)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().action += 1;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().currectaction += 1;
+                
+            }
         }
 
-        
+
     }
 }
 

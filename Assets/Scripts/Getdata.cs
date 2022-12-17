@@ -6,6 +6,7 @@ public class Getdata : MonoBehaviour
 {
     public card_SO carddata;
     public Player_SO playerdata;
+    public enemy_so enemydata;
     public int ID
     {
         get

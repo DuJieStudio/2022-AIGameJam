@@ -20,6 +20,7 @@ public class game_control : MonoBehaviour
         if (playerturn == false)
         {
             enemyendturn();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().action+=1;
             playerturn = true;
 
         }

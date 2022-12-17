@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\createcard.cs" />
     <Compile Include="Assets\Scripts\game_control.cs" />
     <Compile Include="Assets\Data\card_SO\card_SO.cs" />
+    <Compile Include="Assets\Data\enemy_so\enemy_so.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
