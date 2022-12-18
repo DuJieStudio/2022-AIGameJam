@@ -53,8 +53,7 @@ public class enemy_control : MonoBehaviour
     }
     public void caniforgive()
     {
-        int i = Random.Range(0, 100);
-        if (i < forgive)
+        if (Random.Range(0, 100) < forgive)
         { isforgive = true; }
         else
         { 
