@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 36bb64d95cdfc43448edd381f5dc05a6
   - enabled: 1
+    path: Assets/Scenes/Backgurond1.unity
+    guid: f84d36066d62b9845807109b90e212ab
+  - enabled: 1
+    path: Assets/Scenes/Background2.unity
+    guid: 4d5edb42621fd26458a903290882769d
+  - enabled: 1
+    path: Assets/Scenes/Background3.unity
+    guid: 67fa6dd9c3638fc44994e77290573bf1
+  - enabled: 1
+    path: Assets/Scenes/Background4.unity
+    guid: 9ac018f1e9bf45f45afdf6c8127e0664
+  - enabled: 1
     path: Assets/Scenes/1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
