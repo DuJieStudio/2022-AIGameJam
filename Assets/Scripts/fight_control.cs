@@ -39,7 +39,10 @@ public class fight_control : MonoBehaviour
     public void changedata()
     {
         actiontext.text = currectaction.ToString() + "/" + action.ToString();
-        hpbar.value = hp / playerdata.hp;
+        float a = hp;
+        float b = playerdata.hp;
+
+        hpbar.value = a / b;
         
     }
     public void addaction()
@@ -47,9 +50,9 @@ public class fight_control : MonoBehaviour
     {
         if (GetComponent<game_control>().playerturn == false)
         {
-            if (action >= 9)
+            if (action > 5)
             {
-                action = 9;
+                action = 5;
             }
             currectaction = action+1;
         }

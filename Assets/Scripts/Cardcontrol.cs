@@ -155,6 +155,7 @@ public class Cardcontrol : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             if (isdragging)
             {
+                
                 GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().currectaction -= 2;
                 target.GetComponent<enemy_control>().currenthp += 10;
                 target.GetComponent<enemy_control>().forgive += 10;

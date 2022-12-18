@@ -11,6 +11,7 @@ public class enemy_control : MonoBehaviour
     public enemy_so enemydata;
     public Text forgivedata;
     public bool isforgive;
+    public Slider hp;
 
     public  void Start()
     {
@@ -18,6 +19,7 @@ public class enemy_control : MonoBehaviour
         currenthp = maxhp;
         forgive = 0;
         forgivedata = GetComponentInChildren<Text>();
+        hp = GetComponentInChildren<Slider>();
 
 
         
@@ -34,6 +36,10 @@ public class enemy_control : MonoBehaviour
             caniforgive();
            
         }
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<game_control>().playerturn == false)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().hp -= 5;
+        }
     }
 
 
@@ -41,6 +47,9 @@ public class enemy_control : MonoBehaviour
     {
        
         forgivedata.text = forgive.ToString();
+        float x = currenthp;
+        float y = maxhp;
+        hp.value =  x/y;
     }
     public void caniforgive()
     {
