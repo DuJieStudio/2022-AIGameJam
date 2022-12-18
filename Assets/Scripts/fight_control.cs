@@ -14,6 +14,7 @@ public class fight_control : MonoBehaviour
     public int CreatecardNUM;
     public int currectaction;
     public bool isforgive;
+    public Text hptext;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,7 @@ public class fight_control : MonoBehaviour
         float b = playerdata.hp;
 
         hpbar.value = a / b;
-        
+        hptext.text = hp.ToString();
     }
     public void addaction()
     

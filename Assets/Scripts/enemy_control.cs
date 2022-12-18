@@ -38,7 +38,7 @@ public class enemy_control : MonoBehaviour
         }
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<game_control>().playerturn == false)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().hp -= 5;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<fight_control>().hp -= enemydata.attack;
         }
     }
 

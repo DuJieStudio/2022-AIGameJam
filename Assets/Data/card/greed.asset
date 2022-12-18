@@ -15,6 +15,6 @@ MonoBehaviour:
   ID: 4
   name: "\u8D2A\u5A6A"
   info: "\u6478\u4E24\u5F20\u724C"
-  photo: {fileID: 0}
+  photo: {fileID: 7711662181331853372, guid: 7142c469a9c028049bd88032d7913794, type: 3}
   value: 2
   cost: 2

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class game_control : MonoBehaviour
 {
     public int time;
@@ -24,6 +25,17 @@ public class game_control : MonoBehaviour
             playerturn = true;
 
         }
+        if (GameObject.FindGameObjectWithTag("enemy") == null)
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 4)
+            { Application.Quit(); }
+            else
+            { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
+            
+            
+        }
+
+        
     }
     public void playerendturn()
     {
